@@ -1,7 +1,14 @@
-<input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+<input style="display:none;" 
+       type="file"
+       name="photo"
+       ng2FileSelect 
+       [uploader]="uploader" #fileInput/>
 
-<button type="button" class="btn btn-success btn-s" 
-  (click)="uploader.uploadAll()" 
-  [disabled]="!uploader.getNotUploadedItems().length" >
-      Upload an Image
+<button type="button" (click)="fileInput.click()">Pick A File</button>
+
+
+<button type="button" 
+        class="btn btn-success btn-s" 
+        (click)="uploader.uploadAll()" 
+        [disabled]="!uploader.getNotUploadedItems().length" >Upload an Image
 </button>
